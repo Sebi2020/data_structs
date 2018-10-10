@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Queues &mdash; data_structs 0.0.1 Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="Double Linked List" href="data_structs.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> data_structs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data_structs.html">Double Linked List</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Queues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fifo">FIFO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lifo-stack">LIFO (Stack)</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">data_structs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Queues</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/queue.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="queues">
+<h1>Queues<a class="headerlink" href="#queues" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="fifo">
+<h2>FIFO<a class="headerlink" href="#fifo" title="Link zu dieser Überschrift">¶</a></h2>
+<dl class="class">
+<dt id="fifo">
+<em class="property">class </em><code class="descname">fifo</code><span class="sig-paren">(</span><em>max_size</em><span class="sig-paren">)</span><a class="headerlink" href="#fifo" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Creates a new First-In-First-Out Queue with at most <strong>max_size</strong> elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<li><strong>max_size</strong> (<em>int</em>) – Maximum queue size</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="fifo.push">
+<code class="descclassname">fifo.</code><code class="descname">push</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#fifo.push" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Adds a new element to the queue. If <strong>max_size</strong> is reached no element will be added.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> (<em>any</em>) – The value to add</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true if current queue size isn’t greater than <strong>max_size</strong>. Otherwise false.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="fifo.pull">
+<code class="descclassname">fifo.</code><code class="descname">pull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fifo.pull" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Extracts one element of the queue. The element will be removed from the queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rückgabe:</th><td class="field-body"><strong>any</strong> – The element or null on failure.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="fifo.peek">
+<code class="descclassname">fifo.</code><code class="descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fifo.peek" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Returns one element of the queue without removing the element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rückgabe:</th><td class="field-body"><strong>any</strong> – The element or null on failure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="fifo.flush">
+<code class="descclassname">fifo.</code><code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fifo.flush" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Deletes the entire queue removing all elements.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="lifo-stack">
+<h2>LIFO (Stack)<a class="headerlink" href="#lifo-stack" title="Link zu dieser Überschrift">¶</a></h2>
+<dl class="class">
+<dt id="lifo">
+<em class="property">class </em><code class="descname">lifo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lifo" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Represents a LIFO - Queue (Stack)</p>
+<dl class="function">
+<dt id="lifo.push">
+<code class="descclassname">lifo.</code><code class="descname">push</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#lifo.push" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Pushes on element ot the stack.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> (<em>any</em>) – The value you want to push to the stack.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true if the current stack size doesn’t exceed the maximum stack size.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="lifo.pop">
+<code class="descclassname">lifo.</code><code class="descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lifo.pop" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Pops one element from the stack</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rückgabe:</th><td class="field-body"><strong>any</strong> – the value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="lifo.peek">
+<code class="descclassname">lifo.</code><code class="descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lifo.peek" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Returns the last element, but does not delete it from the stack.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Rückgabe:</th><td class="field-body"><strong>any</strong> – the value.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="lifo.flush">
+<code class="descclassname">lifo.</code><code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lifo.flush" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Flushes the entire stack</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lifo.size">
+<code class="descclassname">lifo.</code><code class="descname">size</code><a class="headerlink" href="#lifo.size" title="Link zu dieser Definition">¶</a></dt>
+<dd><p>Returns the current stack size</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="data_structs.html" class="btn btn-neutral" title="Double Linked List" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Sebastian Tilders
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
