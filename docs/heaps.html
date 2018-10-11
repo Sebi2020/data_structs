@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Queues &mdash; data_structs 0.0.1 documentation</title>
+  <title>Heaps &mdash; data_structs 0.0.1 documentation</title>
   
 
   
@@ -28,8 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Iterators" href="iterators.html" />
-    <link rel="prev" title="Double Linked List" href="data_structs.html" /> 
+    <link rel="prev" title="Iterators" href="iterators.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -85,13 +84,9 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="data_structs.html">Double Linked List</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Queues</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#fifo">FIFO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lifo-stack">LIFO (Stack)</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="queue.html">Queues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iterators.html">Iterators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="heaps.html">Heaps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Heaps</a></li>
 </ul>
 
             
@@ -137,13 +132,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Queues</li>
+      <li>Heaps</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/queue.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/heaps.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -156,110 +151,112 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="queues">
-<h1>Queues<a class="headerlink" href="#queues" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="fifo">
-<h2>FIFO<a class="headerlink" href="#fifo" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="fifo">
-<em class="property">class </em><code class="descname">fifo</code><span class="sig-paren">(</span><em>max_size</em><span class="sig-paren">)</span><a class="headerlink" href="#fifo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fifo class</p>
-<p>Creates a new First-In-First-Out Queue with at most <strong>max_size</strong> elements</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>max_size</strong> (<em>int</em>) – Maximum queue size</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+  <div class="section" id="heaps">
+<h1>Heaps<a class="headerlink" href="#heaps" title="Permalink to this headline">¶</a></h1>
+<dl class="attribute">
+<dt id="performancePref">
+<code class="descname">performancePref</code><a class="headerlink" href="#performancePref" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> number</p>
+<p>Defines performance preference for heaps.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">performancePref</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">insert</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">extract</span><span class="o">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="lifo-stack">
-<h2>LIFO (Stack)<a class="headerlink" href="#lifo-stack" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="lifo">
-<em class="property">class </em><code class="descname">lifo</code><span class="sig-paren">(</span><em>max_size</em><span class="sig-paren">)</span><a class="headerlink" href="#lifo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a LIFO - Queue (Stack)</p>
-<p>Creates a Last-In-First-Out Queue with at most <strong>max_size</strong> elements.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>max_size</strong> (<em>int</em>) – Maximum queue size</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="function">
-<dt id="lifo.flush">
-<code class="descclassname">lifo.</code><code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lifo.flush" title="Permalink to this definition">¶</a></dt>
-<dd><p>Flushes the entire stack</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="lifo.peek">
-<code class="descclassname">lifo.</code><code class="descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lifo.peek" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the last element, but does not delete it from the stack.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>any</strong> – the value.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="lifo.pop">
-<code class="descclassname">lifo.</code><code class="descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lifo.pop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pops one element from the stack</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>any</strong> – the value.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="lifo.push">
-<code class="descclassname">lifo.</code><code class="descname">push</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#lifo.push" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pushes on element ot the stack.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
-<li><strong>value</strong> (<em>any</em>) – The value you want to push to the stack.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true if the current stack size doesn’t exceed the maximum stack size.</p>
-</td>
-</tr>
-</tbody>
-</table>
+<dl class="attribute">
+<dt>
+<code class="descname">insert 0x1</code></dt>
+<dd><p>The heap do fast inserts</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="lifo.size">
-<code class="descclassname">lifo.</code><code class="descname">size</code><a class="headerlink" href="#lifo.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the current stack size</p>
+<dt>
+<code class="descname">extract 0x2</code></dt>
+<dd><p>The heap do fast extracts</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+<dl class="class">
+<dt id="HeapNode">
+<em class="property">class </em><code class="descname">HeapNode</code><span class="sig-paren">(</span><em>parent</em>, <em>left</em>, <em>right</em><span class="sig-paren">)</span><a class="headerlink" href="#HeapNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a heap node</p>
+<p>Creates a new Heap node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="#HeapNode" title="HeapNode"><em>HeapNode</em></a>) – parent of this node</li>
+<li><strong>left</strong> (<a class="reference internal" href="#HeapNode" title="HeapNode"><em>HeapNode</em></a>) – left leaf of this node</li>
+<li><strong>right</strong> (<a class="reference internal" href="#HeapNode" title="HeapNode"><em>HeapNode</em></a>) – right leaf of this node</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="Order">
+<em class="property">class </em><code class="descname">Order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Heap order abstract class</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="MinOrder">
+<em class="property">class </em><code class="descname">MinOrder</code><span class="sig-paren">(</span><em>heap</em><span class="sig-paren">)</span><a class="headerlink" href="#MinOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Min Heap order</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>heap</strong> (<a class="reference internal" href="#Heap" title="Heap"><em>Heap</em></a>) – reference to the current heap</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="MaxOrder">
+<em class="property">class </em><code class="descname">MaxOrder</code><span class="sig-paren">(</span><em>heap</em><span class="sig-paren">)</span><a class="headerlink" href="#MaxOrder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max Heap order</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>heap</strong> (<a class="reference internal" href="#Heap" title="Heap"><em>Heap</em></a>) – reference to the current heap</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="Heap">
+<em class="property">class </em><code class="descname">Heap</code><span class="sig-paren">(</span><em>perf</em>, <em>order</em><span class="sig-paren">)</span><a class="headerlink" href="#Heap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Heap based on <a class="reference internal" href="#HeapNode" title="HeapNode"><code class="xref js js-class docutils literal notranslate"><span class="pre">Heap</span> <span class="pre">Nodes</span></code></a></p>
+<p>Creates a heap with min or max order and read or write preference</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>perf</strong> (<a class="reference internal" href="#performancePref" title="performancePref"><em>performancePref</em></a>) – The preference for fast inserts or extract. One field of <code class="xref py py-class docutils literal notranslate"><span class="pre">performancePerf</span></code></li>
+<li><strong>order</strong> (<a class="reference internal" href="#Order" title="Order"><em>Order</em></a>) – Preference for a min or max order heap. One instance class (not instance) which extends from <code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 
@@ -270,10 +267,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="iterators.html" class="btn btn-neutral float-right" title="Iterators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="data_structs.html" class="btn btn-neutral" title="Double Linked List" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="iterators.html" class="btn btn-neutral" title="Iterators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

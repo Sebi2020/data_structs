@@ -87,6 +87,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Double Linked List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="queue.html">Queues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heaps.html">Heaps</a></li>
 </ul>
 
             
@@ -171,6 +172,24 @@
 </tr>
 </tbody>
 </table>
+<dl class="attribute">
+<dt id="ListNode.next">
+<code class="descclassname">ListNode.</code><code class="descname">next</code><a class="headerlink" href="#ListNode.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pointer to the next element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ListNode.prev">
+<code class="descclassname">ListNode.</code><code class="descname">prev</code><a class="headerlink" href="#ListNode.prev" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pointer to the previous element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ListNode.value">
+<code class="descclassname">ListNode.</code><code class="descname">value</code><a class="headerlink" href="#ListNode.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of this node</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -178,26 +197,6 @@
 <em class="property">class </em><code class="descname">DoubleLinkedList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a double linked lists with its common operations</p>
 <p>Creates a new linked list</p>
-<dl class="function">
-<dt id="DoubleLinkedList.get">
-<code class="descclassname">DoubleLinkedList.</code><code class="descname">get</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Do a search on the linked list for <strong>value</strong></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
-<li><strong>value</strong> (<em>any</em>) – The value you want to search for.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>ListNode</strong> – A Node object.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="function">
 <dt id="DoubleLinkedList.addHead">
 <code class="descclassname">DoubleLinkedList.</code><code class="descname">addHead</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.addHead" title="Permalink to this definition">¶</a></dt>
@@ -226,27 +225,6 @@
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
 <li><strong>value</strong> (<em>any</em>) – The value you want to add to the list</li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="DoubleLinkedList.prepend">
-<code class="descclassname">DoubleLinkedList.</code><code class="descname">prepend</code><span class="sig-paren">(</span><em>elem</em>, <em>newItem</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.prepend" title="Permalink to this definition">¶</a></dt>
-<dd><p>prepends a new element after <strong>elem</strong></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
-<li><strong>elem</strong> (<a class="reference internal" href="#ListNode" title="ListNode"><em>ListNode</em></a>) – Element before which <strong>newItem</strong> should be prepended</li>
-<li><strong>newItem</strong> (<em>any</em>) – The item to append.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true on success</p>
 </td>
 </tr>
 </tbody>
@@ -292,6 +270,59 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="DoubleLinkedList.deleteHead">
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">deleteHead</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.deleteHead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the current head element and sets the head pointer to the next element</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DoubleLinkedList.deleteNode">
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">deleteNode</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.deleteNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a element from the list</p>
+<p>The node must belong to the list. No checks are performend.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>elem</strong> (<a class="reference internal" href="#ListNode" title="ListNode"><em>ListNode</em></a>) – A node from the list</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true on success</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="DoubleLinkedList.deleteTail">
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">deleteTail</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.deleteTail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the current tail element and sets the tail pointer to the previous element</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="DoubleLinkedList.get">
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">get</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do a search on the linked list for <strong>value</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> (<em>any</em>) – The value you want to search for.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>ListNode</strong> – A Node object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="DoubleLinkedList.getForwardIter">
 <code class="descclassname">DoubleLinkedList.</code><code class="descname">getForwardIter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.getForwardIter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <a class="reference internal" href="iterators.html#ForwardDListIterator" title="ForwardDListIterator"><code class="xref js js-class docutils literal notranslate"><span class="pre">Forward</span> <span class="pre">Iterator</span></code></a> for this list</p>
@@ -314,6 +345,27 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">ReverseDListIterator</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="DoubleLinkedList.prepend">
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">prepend</code><span class="sig-paren">(</span><em>elem</em>, <em>newItem</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.prepend" title="Permalink to this definition">¶</a></dt>
+<dd><p>prepends a new element after <strong>elem</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>elem</strong> (<a class="reference internal" href="#ListNode" title="ListNode"><em>ListNode</em></a>) – Element before which <strong>newItem</strong> should be prepended</li>
+<li><strong>newItem</strong> (<em>any</em>) – The item to append.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true on success</p>
+</td>
 </tr>
 </tbody>
 </table>
