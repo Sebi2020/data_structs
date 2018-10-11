@@ -2,7 +2,7 @@ iterators = require('./iterators.js')
 /**
  * Represents a List-Node	
  */
-exports.ListNode = class ListNode {
+class ListNode {
 	/**
 	 * Creates a new List Node 
 	 *
@@ -12,9 +12,9 @@ exports.ListNode = class ListNode {
 	 * @returns ListNode the new node
 	 */
 	constructor(prev, next, value) {
-		/** The previous element */
+		/** Pointer to the previous element */
 		this.prev = prev;
-		/** The next element */
+		/** Pointer to the next element */
 		this.next = next;
 		/** The value of this node */
 		this.value = value;
@@ -24,7 +24,7 @@ exports.ListNode = class ListNode {
 /**	
  * Represents a double linked lists with its common operations
  */
-exports.DoubleLinkedList = class DoubleLinkedList {
+class DoubleLinkedList {
 	/**
 	 * Creates a new linked list
 	 */
@@ -84,6 +84,23 @@ exports.DoubleLinkedList = class DoubleLinkedList {
 			cur = cur.next;
 		}
 		return undefined;
+	}
+	
+    /**
+	 * Returns a new :js:class:`Forward Iterator <ForwardDListIterator>` for this list
+	 * @returns ForwardDListIterator
+	 */
+	getForwardIter() {
+		return new iterators.ForwardDListIterator(this);
+	}
+
+	/**
+	 * Returns a new :js:class:`Reverse Iterator <ReverseDListIterator>` for this list.
+	 *
+	 * @returns ReverseDListIterator
+	 */
+	getReverseIter() {
+		return new iterators.ReverseDListIterator(this);
 	}
 
 	/**
@@ -171,7 +188,7 @@ exports.DoubleLinkedList = class DoubleLinkedList {
 	append(elem, newItem) {
 		if(newItem === undefined || newItem === null || elem === null) return false;
 		if(elem === this._tail) return this.addTail(newItem);
-		let newNode = new Node(elem, elem.next,newItem);
+		let newNode = new ListNode(elem, elem.next,newItem);
 		newNode.next.prev = newNode;
 		elem.next = newNode;
 		return true;
@@ -187,30 +204,17 @@ exports.DoubleLinkedList = class DoubleLinkedList {
 	prepend(elem, newItem) {
 		if(newItem === undefined || newItem === null || elem === null) return false;
 		if(elem === this._head) return this.addHead(newItem);
-		let newNode = new Node(elem.prev, elem, newItem);
+		let newNode = new ListNode(elem.prev, elem, newItem);
 		newNode.prev.next = newNode;
 		elem.prev = newNode;
 		return true;
 	}
-	/**
-	 * Returns a new :js:class:`Forward Iterator <ForwardDListIterator>` for this list
-	 * @returns ForwardDListIterator
-	 */
-	getForwardIter() {
-		return new iterators.ForwardDListIterator(this);
-	}
-
-	/**
-	 * Returns a new :js:class:`Reverse Iterator <ReverseDListIterator>` for this list.
-	 *
-	 * @returns ReverseDListIterator
-	 */
-	getReverseIter() {
-		return new iterators.ReverseDListIterator(this);
-	}
 }
 
-exports.fifo = class fifo {
+/**
+ * Fifo class
+ */
+class fifo {
 	/**
 	 * Creates a new First-In-First-Out Queue with at most **max_size** elements 
 	 * @param {int} max_size Maximum queue size
@@ -269,7 +273,7 @@ exports.fifo = class fifo {
 /**
  * Represents a LIFO - Queue (Stack)
  */
-exports.lifo = exports.stack = class lifo {
+class lifo {
 	/**
 	 * Creates a Last-In-First-Out Queue with at most **max_size** elements.
 	 * @param {int} max_size Maximum queue size
@@ -331,3 +335,8 @@ exports.lifo = exports.stack = class lifo {
 		return this.current_size;
 	}
 }
+
+exports.ListNode = ListNode;
+exports.DoubleLinkedList = DoubleLinkedList;
+exports.fifo = fifo;
+exports.lifo = exports.stack = lifo;

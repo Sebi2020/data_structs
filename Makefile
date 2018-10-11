@@ -8,7 +8,7 @@ build: docs docsrc
 test:
 	npm test
 
-docsrc: clean-build-only
+docsrc: clean
 	cd docsrc && $(MAKE) html
 
 docs: docsrc

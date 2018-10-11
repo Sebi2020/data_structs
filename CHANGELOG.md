@@ -1,7 +1,19 @@
 # Changelog
+## [Unreleased]
+### Added
+- [ ] Heap, minHeap, maxHeap
+- [ ] AsyncFIFO
+- [ ] Testcases for Heap, minHeap, maxHeap
+- [ ] Documentation for Heaps
+
+## [0.1.1] 2018-10-11
+### Added
+- Testcases for DoubleLinkList append and prepend
+
+### Fixed
+- Wrong class name used in prepend and append for new ListNodes 
 
 ## [0.1.0] 2018-10-11
-
 ### Added
 - Functions to retrieve Iterators for Double-Linked-Lists (getForwardIter, getReverseIter)
 - Iterators for Double-Linked-Lists (iterators.js)

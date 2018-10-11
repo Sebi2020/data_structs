@@ -1,7 +1,9 @@
 #####
 Heaps
 #####
+.. warning:: unreleased
 
+	.. versionadded:: 0.2.0
 .. js:autoattribute:: performancePref
 
 	.. code-block:: javascript

@@ -26,18 +26,6 @@ describe('DoubleLinkedList', function() {
 				done();
 			});
 		});
-		describe.skip('#append(elem, value)', () => {
-			it('should append to elem');
-			it('modify head if necessary');
-			it('modify tail if necessary');
-			it('preverse node links');
-		});
-		describe.skip('#prepend(elem, value)', () => {
-			it('should prepend to elem');
-			it('modify head if necessary');
-			it('modify tail if necessary');
-			it('preverse node links');
-		});
 		describe('#addTail(value)', () => {
 			it('should return true', function (done) {
 				var list = new DoubleLinkedList();
@@ -53,6 +41,85 @@ describe('DoubleLinkedList', function() {
 				expect(list._head.prev).to.be.undefined;
 				expect(list._tail.next).to.be.undefined;
 				expect(list._tail.prev.value).to.be.equal(1);
+			});
+		});
+		describe('#append(elem, value)', () => {
+			it('should append to elem', () => {
+				var list = new DoubleLinkedList;
+				list.addTail(1);
+				list.addTail(2);
+				list.addTail(3);
+				var elem = list.get(2);
+				var next_after_new = list.get(3);
+				list.append(elem, 4);
+				var newelem = list. get(4);
+
+				expect(elem.next.value).to.be.equal(4);
+				expect(newelem.prev.value).to.be.equal(2);
+				expect(newelem.next.value).to.be.equal(3);
+				expect(next_after_new.prev.value).to.be.equal(4);
+
+			});
+			it('modify head if necessary', () => {
+				var list = new DoubleLinkedList();
+				list.append(undefined, 1);
+				expect(list._head.value).to.be.equal(1);
+			});
+			it('modify tail if necessary', () => {
+				var list = new DoubleLinkedList();
+				list.append(undefined, 1);
+				expect(list._tail.value).to.be.equal(1);
+			});
+			it('preserve node links', () => {
+				var list = new DoubleLinkedList;
+				list.addTail(1);
+				list.addTail(2);
+				list.addTail(3);
+				list.addTail(5);
+				var elem = list.get(2);
+				var next_after_new = list.get(3);
+				list.append(elem, 4);
+				expect(elem.prev.value).to.be.equal(1);
+				expect(next_after_new.next.value).to.be.equal(5);
+			});
+		});
+		describe('#prepend(elem, value)', () => {
+			it('should prepend to elem', () => {
+				var list = new DoubleLinkedList;
+				list.addTail(1);
+				list.addTail(2);
+				list.addTail(3);
+				list.addTail(4);
+				var elem = list.get(3);
+				var prev_before_new = list.get(2);
+				list.prepend(elem, 4);
+				var newelem = list. get(4);
+				expect(elem.prev.value).to.be.equal(4);
+				expect(newelem.prev.value).to.be.equal(2);
+				expect(newelem.next.value).to.be.equal(3);
+				expect(prev_before_new.next.value).to.be.equal(4);
+			});
+			it('modify head if necessary', () => {
+				var list = new DoubleLinkedList();
+				list.prepend(undefined, 1);
+				expect(list._head.value).to.be.equal(1);
+			});
+			it('modify tail if necessary', () => {
+		    	var list = new DoubleLinkedList();
+				list.prepend(undefined, 1);
+				expect(list._tail.value).to.be.equal(1);
+			});
+			it('preserve node links', () =>  {
+				var list = new DoubleLinkedList;
+				list.addTail(1);
+				list.addTail(2);
+				list.addTail(3);
+				list.addTail(5);
+				var elem = list.get(3);
+				var prev_before_new = list.get(2);
+				list.prepend(elem, 4);
+				expect(elem.next.value).to.be.equal(5);
+				expect(prev_before_new.prev.value).to.be.equal(1);
 			});
 		});
 	});
@@ -142,7 +209,7 @@ describe('DoubleLinkedList', function() {
 		});
 		describe('#deleteHead()', function () {
 			var list = new DoubleLinkedList();
-			beforeEach(function () {
+			before(function () {
 				for(var i = 0; i < 5; i++) {
 					list.addTail(i);
 				}
@@ -153,6 +220,21 @@ describe('DoubleLinkedList', function() {
 					expect(list.get(i)).to.not.be.undefined;
 				}
 				expect(list.get(0)).to.be.undefined;
+			});
+		});
+		describe('#deleteTail()', function () {
+			var list = new DoubleLinkedList();
+			before(function () {
+				for(var i = 0; i < 5; i++) {
+					list.addTail(i);
+				}
+			});
+			it('should remove the tail element', () => {
+				list.deleteTail();
+				for(var i = 1; i < 4; i++) {
+					expect(list.get(i)).to.not.be.undefined;
+				}
+				expect(list.get(4)).to.be.undefined;
 			});
 		});
 	});
