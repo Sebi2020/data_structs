@@ -4,8 +4,8 @@ Data structs is a small nodejs module providing general data structures for ever
 ## Included are (until now)
 
 * Double linked lists
-* FIFO Qeues
-* LIFO Qeues (Stack)
+* FIFO Queues
+* LIFO Queues (Stack)
 
 
 ## In work (planned)
