@@ -176,6 +176,60 @@
 </tr>
 </tbody>
 </table>
+<dl class="function">
+<dt id="fifo.flush">
+<code class="descclassname">fifo.</code><code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fifo.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the entire queue removing all elements.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fifo.peek">
+<code class="descclassname">fifo.</code><code class="descname">peek</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fifo.peek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns one element of the queue without removing the element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>any</strong> – The element or null on failure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="fifo.pull">
+<code class="descclassname">fifo.</code><code class="descname">pull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fifo.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts one element of the queue. The element will be removed from the queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>any</strong> – The element or null on failure.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="fifo.push">
+<code class="descclassname">fifo.</code><code class="descname">push</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#fifo.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new element to the queue. If <strong>max_size</strong> is reached no element will be added.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> (<em>any</em>) – The value to add</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true if current queue size isn’t greater than <strong>max_size</strong>. Otherwise false.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
