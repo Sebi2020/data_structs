@@ -1,6 +1,6 @@
 {
   "name": "@sebi2020/data_structs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Basic Data structures for javascript (and nodejs)",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,11 @@
   "keywords": [
     "data",
     "util",
+    "fifo",
+    "lifo",
+    "list",
+    "stack",
+    "linked-list",
     "data-structures"
   ],
   "repository": {

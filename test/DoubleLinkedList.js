@@ -56,19 +56,67 @@ describe('DoubleLinkedList', function() {
 			});
 		});
 	});
-	describe('#get(value)', () => {
-		var list = new DoubleLinkedList();
-		list.addHead(2);
-		list.addTail(3);
-		list.addHead(1);
-		list.addTail(4);
-		it('should return undefined for non existend values', () => {
-			expect(list.get(0)).to.be.undefined;
+	describe('Get functions', () => {
+		var list;
+		beforeEach((done) => {
+			list = new DoubleLinkedList();
+			list.addHead(2);
+			list.addTail(3);
+			list.addHead(1);
+			list.addTail(4);
+			done();
 		});
-		it('should return true for existend values', () => {
-			for(var i = 0; i < 5; i++) {
-				expect(list.get(i)).to.be.not.false;
-			}
+		describe('#get(value)', () => {
+			it('should return undefined for non existend values', () => {
+				expect(list.get(0)).to.be.undefined;
+			});
+			it('should return true for existend values', () => {
+				for(var i = 0; i < 5; i++) {
+					expect(list.get(i)).to.be.not.false;
+				}	
+			});
+		});
+		describe('#getForwardIter()', () => {
+			var iter;
+			beforeEach(() => {
+				iter = list.getForwardIter();
+			});
+			it('should return {value: *, done: false) object on next call', () => {
+				var first = iter.next();
+				expect(first.done).to.be.false;
+				expect(first.value).to.exist;
+			});
+			it('shoudl return first element on first #next() call', () => {
+				expect(iter.next()).to.be.eql({value:1, done:false});
+			});
+			it('should return done false until all items are processed', () => {
+				var res;
+				for(var i = 0; i<4; i++) {
+					expect(iter.next().done).to.be.false; 
+				}
+				expect(iter.next().done).to.be.true;
+			});
+		});
+		describe('#getReverseIter()', () => {
+			var iter;
+			beforeEach(() => {
+				iter = list.getReverseIter();
+			});
+			it('should return {value: "val", done: false) object on next call', () => {
+				var first = iter.next();
+				expect(first.done).to.be.false;
+				expect(first.value).to.exist;
+			});
+			it('shoudl return last element on first #next() call', () => {
+				expect(iter.next()).to.be.eql({value:4, done:false});
+			});
+			it('should return done false until all items are processed', () => {
+				var res;
+				for(var i = 0; i<4; i++) {
+					expect(iter.next().done).to.be.false; 
+				}
+				expect(iter.next().done).to.be.true;
+			});
 		});
 	});
 	describe('Delete Functions', () => {
@@ -108,13 +156,4 @@ describe('DoubleLinkedList', function() {
 			});
 		});
 	});
-	/*describe('#flush()', () => {
-		it('should delete the entire queue', () => {
-			var list = new data.DoubleLinkedList();
-			list.addHead(1); list.addHead(2);
-			list.flush();
-			expect(list._head).to.be.undefined;
-			expect(list._tail).to.be.undefined;
-		});
-	})*/
 });

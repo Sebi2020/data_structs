@@ -7,7 +7,7 @@ Double Linked List
 .. js:autoclass:: DoubleLinkedList
 
    .. js:autofunction:: get
-   
+
    .. js:autofunction:: addHead
 
    .. js:autofunction:: addTail
@@ -17,3 +17,7 @@ Double Linked List
    .. js:autofunction:: append
 
    .. js:autofunction:: delete
+
+   .. js:autofunction:: getForwardIter
+
+   .. js:autofunction:: getReverseIter

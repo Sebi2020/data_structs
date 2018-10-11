@@ -1,24 +1,26 @@
-all: build test
+all: build
 
 build: docs docsrc
 	mkdir -p build
-	cp index.js package.json package-lock.json Readme.md build
-
-test: docsrc build
-	npm test
 	cp -r test build/test
+	cp *.js *.json LICENSE CHANGELOG.md Readme.md build
 
-docsrc: clean
+test:
+	npm test
+
+docsrc: clean-build-only
 	cd docsrc && $(MAKE) html
 
 docs: docsrc
 	cp -r docsrc/build/html/ docs
 
-clean:
-	cd docsrc && $(MAKE) clean
+clean: clean-build-only clean-docs
+
+clean-build-only:
 	rm -rf build
 
 clean-docs:
+	cd docsrc && $(MAKE) clean
 	rm -rf docs;
 
-.PHONY: test clean build clean-docs
+.PHONY: test clean docs build clean-docs clean-build-only

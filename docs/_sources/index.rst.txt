@@ -12,6 +12,7 @@ Welcome to data_structs's documentation!
 
    data_structs
    queue
+   iterators
 
 
 

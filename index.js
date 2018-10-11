@@ -1,3 +1,4 @@
+iterators = require('./iterators.js')
 /**
  * Represents a List-Node	
  */
@@ -22,7 +23,6 @@ exports.ListNode = class ListNode {
 
 /**	
  * Represents a double linked lists with its common operations
- * 
  */
 exports.DoubleLinkedList = class DoubleLinkedList {
 	/**
@@ -191,6 +191,22 @@ exports.DoubleLinkedList = class DoubleLinkedList {
 		newNode.prev.next = newNode;
 		elem.prev = newNode;
 		return true;
+	}
+	/**
+	 * Returns a new :js:class:`Forward Iterator <ForwardDListIterator>` for this list
+	 * @returns ForwardDListIterator
+	 */
+	getForwardIter() {
+		return new iterators.ForwardDListIterator(this);
+	}
+
+	/**
+	 * Returns a new :js:class:`Reverse Iterator <ReverseDListIterator>` for this list.
+	 *
+	 * @returns ReverseDListIterator
+	 */
+	getReverseIter() {
+		return new iterators.ReverseDListIterator(this);
 	}
 }
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to data_structs’s documentation! &mdash; data_structs 0.0.1 documentation</title>
+  <title>Iterators &mdash; data_structs 0.0.1 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Double Linked List" href="data_structs.html" /> 
+    <link rel="prev" title="Queues" href="queue.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,7 +47,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> data_structs
+            <a href="index.html" class="icon icon-home"> data_structs
           
 
           
@@ -82,10 +82,10 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="data_structs.html">Double Linked List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="queue.html">Queues</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Iterators</a></li>
 </ul>
 
             
@@ -100,7 +100,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">data_structs</a>
+          <a href="index.html">data_structs</a>
         
       </nav>
 
@@ -129,15 +129,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Welcome to data_structs’s documentation!</li>
+      <li>Iterators</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/iterators.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -150,28 +150,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-data-structs-s-documentation">
-<h1>Welcome to data_structs’s documentation!<a class="headerlink" href="#welcome-to-data-structs-s-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="data_structs.html">Double Linked List</a></li>
-<li class="toctree-l1"><a class="reference internal" href="queue.html">Queues</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="queue.html#fifo">FIFO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="queue.html#lifo-stack">LIFO (Stack)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="iterators.html">Iterators</a></li>
-</ul>
+  <div class="section" id="iterators">
+<h1>Iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterator_protocol">Iterator protocol</a> on developer.mozilla.org</p>
 </div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+<dl class="class">
+<dt id="ForwardDListIterator">
+<em class="property">class </em><code class="descname">ForwardDListIterator</code><span class="sig-paren">(</span><em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#ForwardDListIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A iterator which iterates in forward order over a Double Linked List.</p>
+<p>Takes a Double Linked List and returns an iterator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ref</strong> (<a class="reference internal" href="data_structs.html#DoubleLinkedList" title="DoubleLinkedList"><em>DoubleLinkedList</em></a>) – Reference to a double linked list</li>
 </ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="ForwardDListIterator.next">
+<code class="descclassname">ForwardDListIterator.</code><code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ForwardDListIterator.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new entry of the list</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ReverseDListIterator">
+<em class="property">class </em><code class="descname">ReverseDListIterator</code><span class="sig-paren">(</span><em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#ReverseDListIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A iterator which iterates in reverse order over a Double Linked List.</p>
+<p>Takes the Double Linked list and creates a ReverseDListIterator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ref</strong> (<a class="reference internal" href="data_structs.html#DoubleLinkedList" title="DoubleLinkedList"><em>DoubleLinkedList</em></a>) – Reference to Double Linked List</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="ReverseDListIterator.next">
+<code class="descclassname">ReverseDListIterator.</code><code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ReverseDListIterator.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new entry of the list</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -182,8 +214,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="data_structs.html" class="btn btn-neutral float-right" title="Double Linked List" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="queue.html" class="btn btn-neutral" title="Queues" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

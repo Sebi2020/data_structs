@@ -1,14 +1,14 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Double Linked List &mdash; data_structs 0.0.1 Dokumentation</title>
+  <title>Double Linked List &mdash; data_structs 0.0.1 documentation</title>
   
 
   
@@ -26,8 +26,8 @@
 
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
-    <link rel="search" title="Suche" href="search.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Queues" href="queue.html" />
     <link rel="prev" title="Welcome to data_structs’s documentation!" href="index.html" /> 
 
@@ -86,6 +86,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Double Linked List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="queue.html">Queues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iterators.html">Iterators</a></li>
 </ul>
 
             
@@ -151,17 +152,17 @@
            <div itemprop="articleBody">
             
   <div class="section" id="double-linked-list">
-<h1>Double Linked List<a class="headerlink" href="#double-linked-list" title="Link zu dieser Überschrift">¶</a></h1>
+<h1>Double Linked List<a class="headerlink" href="#double-linked-list" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="ListNode">
-<em class="property">class </em><code class="descname">ListNode</code><span class="sig-paren">(</span><em>prev</em>, <em>next</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ListNode" title="Link zu dieser Definition">¶</a></dt>
+<em class="property">class </em><code class="descname">ListNode</code><span class="sig-paren">(</span><em>prev</em>, <em>next</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ListNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a List-Node</p>
 <p>Creates a new List Node</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
 <li><strong>prev</strong> (<a class="reference internal" href="#ListNode" title="ListNode"><em>ListNode</em></a>) – The previous node</li>
 <li><strong>next</strong> (<a class="reference internal" href="#ListNode" title="ListNode"><em>ListNode</em></a>) – The following node</li>
 <li><strong>value</strong> (<em>any</em>) – Value of this node</li>
@@ -174,23 +175,23 @@
 
 <dl class="class">
 <dt id="DoubleLinkedList">
-<em class="property">class </em><code class="descname">DoubleLinkedList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList" title="Link zu dieser Definition">¶</a></dt>
+<em class="property">class </em><code class="descname">DoubleLinkedList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a double linked lists with its common operations</p>
 <p>Creates a new linked list</p>
 <dl class="function">
 <dt id="DoubleLinkedList.get">
-<code class="descclassname">DoubleLinkedList.</code><code class="descname">get</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.get" title="Link zu dieser Definition">¶</a></dt>
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">get</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do a search on the linked list for <strong>value</strong></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
 <li><strong>value</strong> (<em>any</em>) – The value you want to search for.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last"><strong>ListNode</strong> – A Node object.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>ListNode</strong> – A Node object.</p>
 </td>
 </tr>
 </tbody>
@@ -199,13 +200,13 @@
 
 <dl class="function">
 <dt id="DoubleLinkedList.addHead">
-<code class="descclassname">DoubleLinkedList.</code><code class="descname">addHead</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.addHead" title="Link zu dieser Definition">¶</a></dt>
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">addHead</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.addHead" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a new element to the beginning of the list.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
 <li><strong>value</strong> (<em>any</em>) – The value you want to add to the list.</li>
 </ul>
 </td>
@@ -216,13 +217,13 @@
 
 <dl class="function">
 <dt id="DoubleLinkedList.addTail">
-<code class="descclassname">DoubleLinkedList.</code><code class="descname">addTail</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.addTail" title="Link zu dieser Definition">¶</a></dt>
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">addTail</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.addTail" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a new element at the list end.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
 <li><strong>value</strong> (<em>any</em>) – The value you want to add to the list</li>
 </ul>
 </td>
@@ -233,19 +234,19 @@
 
 <dl class="function">
 <dt id="DoubleLinkedList.prepend">
-<code class="descclassname">DoubleLinkedList.</code><code class="descname">prepend</code><span class="sig-paren">(</span><em>elem</em>, <em>newItem</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.prepend" title="Link zu dieser Definition">¶</a></dt>
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">prepend</code><span class="sig-paren">(</span><em>elem</em>, <em>newItem</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.prepend" title="Permalink to this definition">¶</a></dt>
 <dd><p>prepends a new element after <strong>elem</strong></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
 <li><strong>elem</strong> (<a class="reference internal" href="#ListNode" title="ListNode"><em>ListNode</em></a>) – Element before which <strong>newItem</strong> should be prepended</li>
 <li><strong>newItem</strong> (<em>any</em>) – The item to append.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true on success</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true on success</p>
 </td>
 </tr>
 </tbody>
@@ -254,19 +255,19 @@
 
 <dl class="function">
 <dt id="DoubleLinkedList.append">
-<code class="descclassname">DoubleLinkedList.</code><code class="descname">append</code><span class="sig-paren">(</span><em>elem</em>, <em>newItem</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.append" title="Link zu dieser Definition">¶</a></dt>
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">append</code><span class="sig-paren">(</span><em>elem</em>, <em>newItem</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append a new element after <strong>elem</strong></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first simple">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
 <li><strong>elem</strong> (<a class="reference internal" href="#ListNode" title="ListNode"><em>ListNode</em></a>) – Element after which <strong>newItem</strong> should be appended</li>
 <li><strong>newItem</strong> (<em>any</em>) – The item to append.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Rückgabe:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true on success</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>boolean</strong> – true on success</p>
 </td>
 </tr>
 </tbody>
@@ -275,16 +276,44 @@
 
 <dl class="function">
 <dt id="DoubleLinkedList.delete">
-<code class="descclassname">DoubleLinkedList.</code><code class="descname">delete</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.delete" title="Link zu dieser Definition">¶</a></dt>
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">delete</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for an element and deletes it.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameter:</th><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
 <li><strong>value</strong> (<em>any</em>) – Value of the element you want to delete</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="DoubleLinkedList.getForwardIter">
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">getForwardIter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.getForwardIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new <a class="reference internal" href="iterators.html#ForwardDListIterator" title="ForwardDListIterator"><code class="xref js js-class docutils literal notranslate"><span class="pre">Forward</span> <span class="pre">Iterator</span></code></a> for this list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">ForwardDListIterator</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="DoubleLinkedList.getReverseIter">
+<code class="descclassname">DoubleLinkedList.</code><code class="descname">getReverseIter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoubleLinkedList.getReverseIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new <a class="reference internal" href="iterators.html#ReverseDListIterator" title="ReverseDListIterator"><code class="xref js js-class docutils literal notranslate"><span class="pre">Reverse</span> <span class="pre">Iterator</span></code></a> for this list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">ReverseDListIterator</td>
 </tr>
 </tbody>
 </table>
@@ -339,7 +368,6 @@
         <script type="text/javascript" src="_static/jquery.js"></script>
         <script type="text/javascript" src="_static/underscore.js"></script>
         <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/translations.js"></script>
         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
