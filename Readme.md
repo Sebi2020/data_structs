@@ -1,5 +1,5 @@
 # Data structs
-Data structs is a small module providing general data structures for everydays use.
+Data structs is a small nodejs module providing general data structures for everyday use.
 
 ## Included are (until now)
 
