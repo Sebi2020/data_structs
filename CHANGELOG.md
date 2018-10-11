@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.0]() 2018-10-11
+## [0.1.0] 2018-10-11
 
 ### Added
 - Functions to retrieve Iterators for Double-Linked-Lists (getForwardIter, getReverseIter)
