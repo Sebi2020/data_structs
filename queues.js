@@ -124,5 +124,43 @@ class lifo {
 	}
 }
 
+/** Provides a fast stack as an Array */
+class ArrayStack {
+	constructor(max_size) {
+		this.limit = Infinity;
+		if(max_size != undefined) {
+			this.limit = max_size;
+		}
+		this._size = 0;
+		this._stack = Array();
+	}
+	push(val) {
+		if(this._size < this.limit) {
+			this._stack.push(val);
+			this._size++;
+			return true;
+		}
+		return false;
+	}
+	pop() {
+		if(this._size > 0) {
+			this._size--;
+			return this._stack.pop();
+		}
+		return null;
+	}
+	peek() {
+		if(this._size > 0) {
+			return this._stack[this._size-1];
+		}
+		return null;
+	}
+	flush() {
+		delete this._stack;
+		this._size = 0;
+		this._stack = new Array();
+	}
+}
 exports.fifo = fifo;
 exports.lifo = exports.stack = lifo;
+exports.ArrayStack = ArrayStack;

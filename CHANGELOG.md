@@ -4,7 +4,14 @@
 - [ ] Heap, minHeap, maxHeap
 - [ ] AsyncFIFO
 - [ ] Testcases for Heap, minHeap, maxHeap
-- [ ] Documentation for Heaps
+- [ ] Documentation for Heap
+- [x] Testcases for Lifo-Queues
+- [x] ArrayStack - a Stack backed by Arrays
+- [x] Testcases for ArrayStack
+- [ ] Documentation for ArrayStack
+
+### Changed
+- [x] Restructered module by placing each class in it's own js file
 
 ## [0.1.1] 2018-10-11
 ### Added
