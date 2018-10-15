@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/Sebi2020/data_structs.svg?branch=master)](https://travis-ci.com/Sebi2020/data_structs)
 # Data structs
 Data structs is a small nodejs module providing general data structures for everyday use.
 
