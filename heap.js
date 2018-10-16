@@ -1,60 +1,46 @@
-/** 
- * Defines performance preference for heaps.
- *
- * @readonly
- * @enum {number}
- */
-var performancePref = {
-	/** fast inserts */
-	insert: 1,
-	/** fast extracts */
-	extract: 2
-};
-Object.freeze(performancePref);
 
-/**
- * Represents a heap node
- */
-class HeapNode {
-	/**
-	 * Creates a new Heap node
-	 *
-	 * @param {HeapNode} parent parent of this node
-	 * @param {HeapNode} left left leaf of this node
-	 * @param {HeapNode} right right leaf of this node
-	 */
-	constructor(parent,left,right) {
-		this.parent = parent;
-		this.left = left;
-		this.right = right;
-	}
-}
-
-/**
- * Heap based on :js:class:`Heap Nodes <HeapNode>`
- *
- */
-class Heap {
+class ArrayHeap {
 	/**
 	 * Creates a heap with min or max order and read or write preference
 	 *
 	 * @param {performancePref} perf The preference for fast inserts or extract. One field of :class:`performancePerf`
-	 * @param {Order} order Preference for a min or max order heap. One instance class (not instance) which extends from :class:`Order`
+	 * @param {Order} order Preference for a min or max order heap. One instance which extends from :class:`Order`
 	 */
-	constructor(perf, order) {
-		this.perf = perf;
-		this.order = new order;
-		this.root = new HeapNode(undefined, undefined, undefined);
+	constructor(array, order) {
+		if(!(order instanceof Order)) {
+			throw TypeError("Order must be an Order");
+		}
+		this.order = order;
+		this._currentSize = size;
+		this.heap = Array.slice();
+	}
+	_heapfiy() {
+		this.order.heapify(this);
+	}
+	_parentKey(i) {
+		return Math.floor(i/2)
+	}
+	_leftKey(i) {
+		return 2 * i;
+	}
+	_rightKey(i) {
+		return 2 * i + 1;
+	}
+	_parent(i) {
+		return this.heap[parentKey(i)];
+	}
+	_left(i) {
+		if(_leftKey(i) < this._currentSize) return this.heap[_leftKey(i)];
+		return undefined;
+	}
+	_right(i) {
+		if(_rightKey(i) < this._currentSize) return this.heap[_rightKey(i)];
+		return undefined;
+	}
+	buildHeap(heap) {
+
 	}
 }
-
-/**
- * Heap based on arrays
- */
-/*class ArrayHeap {
-
-}*/
-
 /**
  * Heap order abstract class
  */
@@ -76,7 +62,7 @@ class Order {
  */
 class MinOrder extends Order {
 	heapify(heap) {
-		return null;
+		
 	}
 }
 
@@ -86,12 +72,17 @@ class MinOrder extends Order {
  * @param {Heap} heap reference to the current heap
  */
 class MaxOrder extends Order {
+	heapify(heap) {
+		return null;
+	}
 }
 
-exports.performancePref = performancePref;
-Object.freeze(exports.performancePref);
-exports.Heap = Heap;
-exports.HeapNode = HeapNode;
+var createMinHeap = (size) => new ArrayHeap(size, new MinOrder());
+var createMaxHeap = (size) => new ArrayHeap(size, new MaxOrder());
+
+exports.Heap = ArrayHeap;
+exports.createMinHeap = createMinHeap;
+exports.createMaxHeap = createMaxHeap;
 exports.MinOrder = MinOrder;
 exports.MaxOrder = MaxOrder;
 exports.Order = Order;
