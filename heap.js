@@ -1,9 +1,15 @@
 util = require('util');
-class ArrayHeap {
-	/**
+
+/**
+ * Heap class backed by an array
+ *
+ */
+
+ class ArrayHeap {
+    /**
 	 * Creates a heap with min or max order and read or write preference
 	 *
-	 * @param {performancePref} perf The preference for fast inserts or extract. One field of :class:`performancePerf`
+	 * @param {Array} array Array to use for heap creation, should consists of \{key\: \*, value\: \* \} objects
 	 * @param {Order} order Preference for a min or max order heap. One instance which extends from :class:`Order`
 	 */
 	constructor(array, order) {
@@ -14,15 +20,38 @@ class ArrayHeap {
 		this._currentSize = 0;
 		this.buildHeap(array == undefined ? Array() : array);
 	}
+	/**
+	 * **INTERNAL**: Rebuild heap structure of a node triple in a recursive manner
+	 *
+	 * @param {key} key the key of the node-triple.
+	 */
 	_heapify(key) {
 		this.order.heapify(this, key);
 	}
+	/**
+	 * **INTERNAL**: returns the parent key of i (int key).
+	 *
+	 * @param {int} key child key of the parent, which should be returned
+	 * @returns {int} parent key value.
+	 */
 	_parentKey(i) {
 		return Math.ceil((i+1)/2)-1;
 	}
+	/**
+	 * **INTERNAL**: returns the left key of i (int key)
+	 *
+	 * @param {int} key parent key of the left child node, which should be returned
+	 * @returns left child key value
+	 */
 	_leftKey(i) {
 		return 2 * i +1;
 	}
+	/**
+	 * **INTERNAL**: returns the right key of i (int key)
+	 *
+	 * @param {int} key parent key of the right child node, which should be returned
+	 * @returns right child key value
+	 */
 	_rightKey(i) {
 		return 2 * i+2;
 	}
@@ -37,6 +66,11 @@ class ArrayHeap {
 		if(_rightKey(i) < this._currentSize) return this.heap[_rightKey(i)];
 		return undefined;
 	}
+	/**
+	 * builds a new heap with the given \{key\: \*, value\: \*\} array.
+	 *
+	 * @param {Array} array The \{key\: \*, value\: \*} array
+	 */
 	buildHeap(array) {
 		this.heap = array;
 		this._currentSize = array.length;
@@ -44,6 +78,12 @@ class ArrayHeap {
 			this._heapify(i);
 		}
 	}
+	/**
+	 * Extracts the greatest or smallest element of the heap depending on :js:class:`Order`
+	 *
+	 * @returns {node} The corrospending \{key\: \*, value\: \*\} node
+	 * @see ArrayHeap
+	 */
 	extract() {
 		if(this._currentSize < 1) return null;
 		var element_to_extract = this.heap[0];
@@ -53,12 +93,18 @@ class ArrayHeap {
 		this._heapify(0);
 		return element_to_extract;
 	}
+	/**
+	 * Insert a new node
+	 *
+	 * @param {int} key key of the new node
+	 * @param {any} value value of the new node
+	 */
 	insert(k,v) {
 		return this.order.insert(this,k,v);
 	}
 }
 /**
- * Heap order abstract class
+ * **Abstract class**: Classes who implement a heap order must inherit from this class.
  */
 class Order {
 	constructor()  {
@@ -76,8 +122,6 @@ class Order {
 
 /**
  * Min Heap order
- *
- * @param {Heap} heap reference to the current heap
  */
 class MinOrder extends Order {
 	heapify(heap,i) {
@@ -109,8 +153,6 @@ class MinOrder extends Order {
 
 /**
  * Max Heap order
- *
- * @param {Heap} heap reference to the current heap
  */
 class MaxOrder extends Order {
 	heapify(heap,i) {
@@ -140,7 +182,9 @@ class MaxOrder extends Order {
 	}
 }
 
+/** Creates a new minHeap */
 var createMinHeap = (array) => new ArrayHeap(array, new MinOrder());
+/** Creates a new maxHeap */
 var createMaxHeap = (array) => new ArrayHeap(array, new MaxOrder());
 
 exports.Heap = ArrayHeap;

@@ -86,7 +86,12 @@
 <li class="toctree-l1"><a class="reference internal" href="data_structs.html">Double Linked List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="queue.html">Queues</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iterators.html">Iterators</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Heaps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Heaps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#orders">Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heap">Heap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#helpers">Helpers</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -160,44 +165,23 @@
 <p><span class="versionmodified">New in version 0.2.0.</span></p>
 </div>
 </div>
-<dl class="attribute">
-<dt id="performancePref">
-<code class="descname">performancePref</code><a class="headerlink" href="#performancePref" title="Permalink to this definition">¶</a></dt>
-<dd><p><strong>type:</strong> number</p>
-<p>Defines performance preference for heaps.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">performancePref</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">insert</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="nx">extract</span><span class="o">:</span> <span class="mi">2</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<dl class="attribute">
-<dt>
-<code class="descname">insert 0x1</code></dt>
-<dd><p>The heap do fast inserts</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt>
-<code class="descname">extract 0x2</code></dt>
-<dd><p>The heap do fast extracts</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="orders">
+<h2>Orders<a class="headerlink" href="#orders" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="HeapNode">
-<em class="property">class </em><code class="descname">HeapNode</code><span class="sig-paren">(</span><em>parent</em>, <em>left</em>, <em>right</em><span class="sig-paren">)</span><a class="headerlink" href="#HeapNode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a heap node</p>
-<p>Creates a new Heap node</p>
+<dt id="Order">
+<em class="property">class </em><code class="descname">Order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Order" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Abstract class</strong>: Classes who implement a heap order must inherit from this class.</p>
+<dl class="function">
+<dt id="Order.heapify">
+<code class="descclassname">Order.</code><code class="descname">heapify</code><span class="sig-paren">(</span><em>heap</em>, <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#Order.heapify" title="Permalink to this definition">¶</a></dt>
+<dd><p>The heapify function, which should respect the heap order if a class inherits from this class.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>parent</strong> (<a class="reference internal" href="#HeapNode" title="HeapNode"><em>HeapNode</em></a>) – parent of this node</li>
-<li><strong>left</strong> (<a class="reference internal" href="#HeapNode" title="HeapNode"><em>HeapNode</em></a>) – left leaf of this node</li>
-<li><strong>right</strong> (<a class="reference internal" href="#HeapNode" title="HeapNode"><em>HeapNode</em></a>) – right leaf of this node</li>
+<li><strong>heap</strong> (<a class="reference internal" href="#ArrayHeap" title="ArrayHeap"><em>ArrayHeap</em></a>) – The heap to use for the heapify operation</li>
+<li><strong>key</strong> (<em>int</em>) – The key of the node-triple to use for the heapify operation</li>
 </ul>
 </td>
 </tr>
@@ -205,58 +189,74 @@
 </table>
 </dd></dl>
 
-<dl class="class">
-<dt id="Order">
-<em class="property">class </em><code class="descname">Order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Order" title="Permalink to this definition">¶</a></dt>
-<dd><p>Heap order abstract class</p>
+<dl class="function">
+<dt id="Order.insert">
+<code class="descclassname">Order.</code><code class="descname">insert</code><span class="sig-paren">(</span><em>heap</em>, <em>k</em>, <em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#Order.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>The insert function, which should respect the heap order if a class inherits from this class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>heap</strong> (<a class="reference internal" href="#ArrayHeap" title="ArrayHeap"><em>ArrayHeap</em></a>) – The heap to use for the insert operation</li>
+<li><strong>k</strong> (<em>int</em>) – The key value to use for the new node</li>
+<li><strong>v</strong> (<em>any</em>) – The value to use for the new node</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="MinOrder">
-<em class="property">class </em><code class="descname">MinOrder</code><span class="sig-paren">(</span><em>heap</em><span class="sig-paren">)</span><a class="headerlink" href="#MinOrder" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descname">MinOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MinOrder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Min Heap order</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>heap</strong> (<a class="reference internal" href="#Heap" title="Heap"><em>Heap</em></a>) – reference to the current heap</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 <dl class="class">
 <dt id="MaxOrder">
-<em class="property">class </em><code class="descname">MaxOrder</code><span class="sig-paren">(</span><em>heap</em><span class="sig-paren">)</span><a class="headerlink" href="#MaxOrder" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descname">MaxOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MaxOrder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Max Heap order</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>heap</strong> (<a class="reference internal" href="#Heap" title="Heap"><em>Heap</em></a>) – reference to the current heap</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
+</div>
+<div class="section" id="heap">
+<h2>Heap<a class="headerlink" href="#heap" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="Heap">
-<em class="property">class </em><code class="descname">Heap</code><span class="sig-paren">(</span><em>perf</em>, <em>order</em><span class="sig-paren">)</span><a class="headerlink" href="#Heap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Heap based on <a class="reference internal" href="#HeapNode" title="HeapNode"><code class="xref js js-class docutils literal notranslate"><span class="pre">Heap</span> <span class="pre">Nodes</span></code></a></p>
+<dt id="ArrayHeap">
+<em class="property">class </em><code class="descname">ArrayHeap</code><span class="sig-paren">(</span><em>array</em>, <em>order</em><span class="sig-paren">)</span><a class="headerlink" href="#ArrayHeap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Heap class backed by an array</p>
 <p>Creates a heap with min or max order and read or write preference</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
-<li><strong>perf</strong> (<a class="reference internal" href="#performancePref" title="performancePref"><em>performancePref</em></a>) – The preference for fast inserts or extract. One field of <code class="xref py py-class docutils literal notranslate"><span class="pre">performancePerf</span></code></li>
-<li><strong>order</strong> (<a class="reference internal" href="#Order" title="Order"><em>Order</em></a>) – Preference for a min or max order heap. One instance class (not instance) which extends from <code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></li>
+<li><strong>array</strong> (<em>Array</em>) – Array to use for heap creation, should consists of {key: *, value: * } objects</li>
+<li><strong>order</strong> (<a class="reference internal" href="#Order" title="Order"><em>Order</em></a>) – Preference for a min or max order heap. One instance which extends from <code class="xref py py-class docutils literal notranslate"><span class="pre">Order</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">dont use internal methods if you want the heap to behave stable.</p>
+</div>
+<dl class="function">
+<dt id="ArrayHeap.insert">
+<code class="descclassname">ArrayHeap.</code><code class="descname">insert</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ArrayHeap.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert a new node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>int</em>) – key of the new node</li>
+<li><strong>value</strong> (<em>any</em>) – value of the new node</li>
 </ul>
 </td>
 </tr>
@@ -264,6 +264,82 @@
 </table>
 </dd></dl>
 
+<dl class="function">
+<dt id="ArrayHeap.extract">
+<code class="descclassname">ArrayHeap.</code><code class="descname">extract</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ArrayHeap.extract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the greatest or smallest element of the heap depending on <a class="reference internal" href="#Order" title="Order"><code class="xref js js-class docutils literal notranslate"><span class="pre">Order()</span></code></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>node</strong> – The corrospending {key: *, value: *} node</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li><a class="reference internal" href="#ArrayHeap" title="ArrayHeap"><code class="xref any js js-class docutils literal notranslate"><span class="pre">ArrayHeap</span></code></a></li>
+</ul>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ArrayHeap.buildHeap">
+<code class="descclassname">ArrayHeap.</code><code class="descname">buildHeap</code><span class="sig-paren">(</span><em>array</em><span class="sig-paren">)</span><a class="headerlink" href="#ArrayHeap.buildHeap" title="Permalink to this definition">¶</a></dt>
+<dd><p>builds a new heap with the given {key: *, value: *} array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>array</strong> (<em>Array</em>) – The {key: *, value: *} array</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="helpers">
+<h2>Helpers<a class="headerlink" href="#helpers" title="Permalink to this headline">¶</a></h2>
+<p>If you want to create a new heap, you can use this two helper functions, which automatically create new <a class="reference internal" href="#Order" title="Order"><code class="xref js js-class docutils literal notranslate"><span class="pre">Order()</span></code></a> instances for the new heap.</p>
+<dl class="function">
+<dt id="createMinHeap">
+<code class="descname">createMinHeap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#createMinHeap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new minHeap</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new ArrayHeap with max first order</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ArrayHeap" title="ArrayHeap"><code class="xref js js-class docutils literal notranslate"><span class="pre">ArrayHeap()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="createMaxHeap">
+<code class="descname">createMaxHeap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#createMaxHeap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new maxHeap</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a new ArrayHeap with max first order</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ArrayHeap" title="ArrayHeap"><code class="xref js js-class docutils literal notranslate"><span class="pre">ArrayHeap()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 </div>
 
 
