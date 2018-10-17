@@ -126,6 +126,11 @@ class lifo {
 
 /** Provides a fast stack as an Array */
 class ArrayStack {
+	/**
+	 * Creates a new stack with at most *max_size* elements
+	 *
+	 * @param {int} max_size maximum stack size or *Infinity* for unlimited stacks.
+	 */
 	constructor(max_size) {
 		this.limit = Infinity;
 		if(max_size != undefined) {
@@ -134,6 +139,11 @@ class ArrayStack {
 		this._size = 0;
 		this._stack = Array();
 	}
+	/**
+	 * Pushes a new value to the stack
+	 *
+	 * @param {any} val Value which should be pushed to the stack.
+	 */
 	push(val) {
 		if(this._size < this.limit) {
 			this._stack.push(val);
@@ -142,6 +152,11 @@ class ArrayStack {
 		}
 		return false;
 	}
+	/**
+	 * pops one element off the stack.
+	 *
+	 * @returns {any} any element
+	 */
 	pop() {
 		if(this._size > 0) {
 			this._size--;
@@ -149,12 +164,20 @@ class ArrayStack {
 		}
 		return null;
 	}
+	/**
+	 * Returns the top most element of the stack, but does not delete it.
+	 *
+	 * @returns {any} any element
+	 */
 	peek() {
 		if(this._size > 0) {
 			return this._stack[this._size-1];
 		}
 		return null;
 	}
+	/**
+	 * Deletes the entire stack
+	 */
 	flush() {
 		delete this._stack;
 		this._size = 0;

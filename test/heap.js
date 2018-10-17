@@ -35,7 +35,7 @@ describe('Orders', () => {
 });
 
 describe('Heap', () => {
-	describe('#insert', () => {
+	describe('#insert(key, value)', () => {
 		var h;
 		beforeEach(() => {
 			h = heap.createMinHeap();
@@ -55,18 +55,66 @@ describe('Heap', () => {
 			expect(h.heap[3].key).to.be.equal(4);
 		});
 	})
-	describe('#delete', () => {
-		it('should remove an element');
-		it('should keep the heap structure');
+	describe('#delete(key)', () => {
+		var h;
+		beforeEach(() => {
+			h = heap.createMinHeap();
+			h.insert(1,2);
+			h.insert(2,3);
+			h.insert(3,3);
+		});
+		it('should remove an element', () => {
+			h.delete(2);
+			expect(h.heap).to.not.deep.include({key: 2, value: 3});
+		});	
+		it('should keep the heap structure', () => {
+			h.delete(2);
+			expect(h.heap).to.be.eql([{key: 1, value: 2}, {key:3, value:3}]);
+		});
 	});
-	describe('extract', () => {
+	describe('#extract()', () => {
+		var h;
 		describe('minHeap', () => {
-			it('should extract min');
-			it('should keep the heap structure');
+			beforeEach(() => {
+				h = heap.createMinHeap();
+				h.insert(5,1);
+				h.insert(4,2);
+				h.insert(6,2);
+				h.insert(10,2);
+			});
+			it('should extract min', () => {
+				expect(h.extract()).to.be.eql({key:4,value:2});
+			});
+			it('should keep the heap structure', () => {
+				h.extract();
+				expect(h.heap).to.not.deep.include({key: 4, value:2});
+				expect(h.extract()).to.be.eql({key:5, value:1});
+				expect(h.extract()).to.be.eql({key:6, value:2});
+				expect(h.extract()).to.be.eql({key:10, value:2});
+			});
 		});
 		describe('maxHeap', () =>  {
-			it('should extract max');
-			it('should keep the heap structure');
+			beforeEach(() => {
+				h = heap.createMaxHeap();
+				h.insert(5,1);
+				h.insert(4,2);
+				h.insert(6,2);
+				h.insert(1,2);
+			});
+			it('should extract max', () => {
+				expect(h.extract()).to.be.eql({key: 6, value: 2});
+			});
+			it('should keep the heap structure', () => {
+				h.extract();
+				expect(h.heap).to.not.deep.include({key: 6, value:2});
+				expect(h.extract()).to.be.eql({key:5, value:1});
+				expect(h.extract()).to.be.eql({key:4, value:2});
+				expect(h.extract()).to.be.eql({key:1, value:2});
+			});
 		});
+	});
+	describe('#merge(heap)', () => {
+		it('should merge the heaps');
+		it('should return true on success');
 	});
 });

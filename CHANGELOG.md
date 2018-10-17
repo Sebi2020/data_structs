@@ -6,9 +6,9 @@
 - [x] ArrayStack - a Stack backed by Arrays
 - [x] Testcases for ArrayStack
 - [x] Documentation for Heap
-- [ ] Documentation for ArrayStack
+- [x] Testcases for Heap, minHeap, maxHeap
+- [x] Documentation for ArrayStack
 - [ ] AsyncFIFO
-- [ ] Testcases for Heap, minHeap, maxHeap
 
 ### Changed
 - [x] Restructered module by placing each class in it's own js file

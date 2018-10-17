@@ -34,7 +34,7 @@ Heap
 .. js:autoclass:: ArrayHeap
    :members: insert, extract, buildHeap
 
-   .. warning:: dont use internal methods if you want the heap to behave stable.
+   .. warning:: don't use internal methods if you want the heap to behave stable.
 
 Helpers
 =======
@@ -42,7 +42,7 @@ If you want to create a new heap, you can use this two helper functions, which a
 
 .. js:autofunction:: createMinHeap
    
-   :return: a new ArrayHeap with max first order
+   :return: a new ArrayHeap with min first order
    :rtype: :js:class:`ArrayHeap`
 
 .. js:autofunction:: createMaxHeap

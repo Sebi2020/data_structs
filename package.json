@@ -4,7 +4,7 @@
   "description": "Basic Data structures for javascript (and nodejs)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --slow 4"
+    "test": "mocha --slow 5"
   },
   "keywords": [
     "data",

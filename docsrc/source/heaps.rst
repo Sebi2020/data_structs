@@ -34,7 +34,7 @@ Heap
 .. js:autoclass:: ArrayHeap
    :members: insert, extract, buildHeap
 
-   .. warning:: dont use internal methods if you want the heap to behave stable.
+   .. warning:: don't use internal methods if you want the heap to behave stable.
 
 Helpers
 =======

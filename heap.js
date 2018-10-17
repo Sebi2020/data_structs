@@ -102,6 +102,18 @@ util = require('util');
 	insert(k,v) {
 		return this.order.insert(this,k,v);
 	}
+	delete(k) {
+		for(var i = 0; i < this._currentSize; i++) {
+			if(this.heap[i].key === k) {
+			 	this.heap[i] = this.heap[this._currentSize-1];
+			 	this.heap.pop();
+			 	this._currentSize -= 1;
+			 	this._heapify(i);
+			 	return true;
+			}
+		}
+		return false;
+	}
 }
 /**
  * **Abstract class**: Classes who implement a heap order must inherit from this class.
@@ -140,8 +152,6 @@ class MinOrder extends Order {
 	}
 	insert(heap,k, v) {
 		var i = ++heap._currentSize-1;
-		// console.log(i);
-		// console.log(heap._parentKey(i));
 		while (i > 0 && heap.heap[heap._parentKey(i)].key > k) {
 			heap.heap[i] = heap.heap[heap._parentKey(i)];
 			i = heap._parentKey(i);
@@ -171,8 +181,6 @@ class MaxOrder extends Order {
 	}
 	insert(heap,k, v) {
 		var i = ++heap._currentSize-1;
-		// console.log(i);
-		// console.log(heap._parentKey(i));
 		while (i > 0 && heap.heap[heap._parentKey(i)].key < k) {
 			heap.heap[i] = heap.heap[heap._parentKey(i)];
 			i = heap._parentKey(i);
@@ -193,28 +201,3 @@ exports.createMaxHeap = createMaxHeap;
 exports.MinOrder = MinOrder;
 exports.MaxOrder = MaxOrder;
 exports.Order = Order;
-
-/*function print_heap(array, key) {
-	function print_space(times) {
-		for(var i = 0; i < times; i++) process.stdout.write(" ");
-	}
-	var max_width = array.length + 2;
-	var initial_space = 1;
-	var current_line_length = Math.floor(array.length/2)+1;
-	var index = array.length-1;
-	var current_line_end = index-current_line_length;
-	while(index >= 0) {
-		print_space(initial_space);
-		initial_space+=1;
-		for(var i = index; i > current_line_end; i--) {
-			process.stdout.write(util.format("%d", array[i]));
-			print_space(initial_space);
-		//	if(i === key) process.stdout.write("k");
-		}
-		process.stdout.write("\n");
-		index -= current_line_length;
-		current_line_length = Math.floor(current_line_length/2);
-		current_line_end -= current_line_length;
-		initial_space = initial_space+1;
-	}
-}*/
