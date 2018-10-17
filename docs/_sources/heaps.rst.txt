@@ -1,9 +1,8 @@
 #####
 Heaps
 #####
-.. warning:: unreleased
 
-	.. versionadded:: 0.2.0
+.. versionadded:: 0.2.0
 
 Orders
 ======

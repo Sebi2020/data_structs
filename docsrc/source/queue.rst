@@ -8,8 +8,11 @@ FIFO
 .. js:autoclass:: fifo
    :members:
 
+
 Asynchronous Fifo
 =================
+.. versionadded:: 0.2.0
+
 .. js:autoclass:: AsyncFifo
    :members:
 
