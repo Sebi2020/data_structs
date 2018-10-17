@@ -1,6 +1,6 @@
 {
   "name": "@sebi2020/data_structs",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Basic Data structures for javascript (and nodejs)",
   "main": "index.js",
   "scripts": {

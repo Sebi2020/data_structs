@@ -1,5 +1,6 @@
 expect = require('chai').expect;
 fifo = require('..').fifo;
+AsyncFifo = require('..').AsyncFifo;
 
 describe('Fifo Queue', function () {
 	it('should create an empty fifo-queue with size 3', function (done) {
@@ -76,5 +77,66 @@ describe('Fifo Queue', function () {
 			expect(q._list._head).to.be.undefined;
 			expect(q._list._tail).to.be.undefined;
 		})
+	});
+});
+describe('Asynchronious Fifo', () => {
+	describe('#push(value)', () => {
+		it('should emit \'data\' on push and add the new value to the queue', (done) => {
+			a = new AsyncFifo(3);
+			a.on('data', (q) => {
+				expect(q.peek()).to.not.be.null;
+				done();
+			});
+			a.push("value");
+		});
+		it('should emit \'full\' if maximum queue size is reached', (done) => {
+			a = new AsyncFifo(3);
+			a.on('full', () => done());
+			a.push(1);
+			a.push(1);
+			a.push(1);
+			expect(a.push(1)).to.be.false;
+		}).timeout(1);
+	});
+	describe('emit \'data\' event', () => {
+		it('should include a queue reference', (done) => {
+			a = new AsyncFifo(3);
+			a.on('data', (q) => {
+				expect(q).to.not.be.undefined;
+				expect(q.current_size).to.be.equal(1);
+				done();
+			});
+			a.push(0);
+		});
+	});
+	describe('#pull()', () => {
+		var a;
+		beforeEach(() => {
+			a = new AsyncFifo(2);
+		});
+		it('should return the last element', () => {
+			a.push(0);
+			expect(a.pull()).to.be.equal(0);
+		});
+		it('should emit empty if no elemennt is available', (done) => {
+			a.push(0);
+			a.on('empty', done);
+			a.pull();
+			expect(a.pull()).to.be.null;
+		}).timeout(1);
+	});
+	describe('#flush', () => {
+		it('should flush the queue', () => {
+			a = new AsyncFifo(3);
+			a.push(0);
+			a.push(1);
+			a.flush();
+			expect(a.pull()).to.be.null;
+		});
+		it('should emit the flush event', (done) => {
+			a = new AsyncFifo(3);
+			a.on('flush', done);
+			a.flush();
+		}).timeout(1);
 	});
 });

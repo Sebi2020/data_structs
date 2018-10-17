@@ -1,17 +1,14 @@
 # Changelog
-## [Unreleased]
+## [0.2.0] 2018-10-18
 ### Added
-- [x] Heap, minHeap, maxHeap
-- [x] Testcases for Lifo-Queues
-- [x] ArrayStack - a Stack backed by Arrays
-- [x] Testcases for ArrayStack
-- [x] Documentation for Heap
-- [x] Testcases for Heap, minHeap, maxHeap
-- [x] Documentation for ArrayStack
-- [ ] AsyncFIFO
+- AsyncFIFO
+- Heaps, min-Heaps and max-Heaps
+- ArrayStack - a Stack backed by Arrays
+- Testcases for ArrayStack, AsyncFifo, Heap, minHeap, maxHeap and Lifo-Queues
+- Documentation for ArrayStack and Heap
 
 ### Changed
-- [x] Restructered module by placing each class in it's own js file
+- Restructered module by placing each class in it's own js file
 
 ## [0.1.1] 2018-10-11
 ### Added

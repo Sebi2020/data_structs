@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Queues &mdash; data_structs 0.1.1 documentation</title>
+  <title>Queues &mdash; data_structs 0.2.0 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                0.1
+                0.2
               </div>
             
           
@@ -87,6 +87,10 @@
 <li class="toctree-l1"><a class="reference internal" href="data_structs.html">Double Linked List</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Queues</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#fifo">FIFO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#asynchronous-fifo">Asynchronous Fifo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fifo-events">Fifo Events</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#lifo-stack">LIFO (Stack)</a></li>
 </ul>
 </li>
@@ -232,6 +236,89 @@
 
 </dd></dl>
 
+</div>
+<div class="section" id="asynchronous-fifo">
+<h2>Asynchronous Fifo<a class="headerlink" href="#asynchronous-fifo" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="AsyncFifo">
+<em class="property">class </em><code class="descname">AsyncFifo</code><span class="sig-paren">(</span><em>max_size</em><span class="sig-paren">)</span><a class="headerlink" href="#AsyncFifo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronous fifo implementation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>max_size</strong> (<em>int</em>) – Maximum queue size</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="AsyncFifo.flush">
+<code class="descclassname">AsyncFifo.</code><code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AsyncFifo.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flushes the queue and emits an <em>flush</em> event</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AsyncFifo.on">
+<code class="descclassname">AsyncFifo.</code><code class="descname">on</code><span class="sig-paren">(</span><em>ev</em>, <em>callback</em><span class="sig-paren">)</span><a class="headerlink" href="#AsyncFifo.on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new event listener</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ev</strong> (<em>string</em>) – Event name</li>
+<li><strong>callback</strong> (<em>callback</em>) – which should be attached to the queue.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="AsyncFifo.pull">
+<code class="descclassname">AsyncFifo.</code><code class="descname">pull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AsyncFifo.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pulls a value synchronously, if the queue is empty, an <em>empty</em> event is emitted</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="AsyncFifo.push">
+<code class="descclassname">AsyncFifo.</code><code class="descname">push</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#AsyncFifo.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pushes a new value to the queue and emits an <em>data</em> event
+or an <em>full</em> event if the maximum queue size is reached.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>any</em>) – Value which should be enqueued.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="fifo-events">
+<h3>Fifo Events<a class="headerlink" href="#fifo-events" title="Permalink to this headline">¶</a></h3>
+<p>The queue emits the following events:</p>
+<dl class="docutils">
+<dt>data</dt>
+<dd>The data event is emitted if a new item is available to be processed
+If multiple listeners are attached to this event, only one listener can pull the same item. The callback gets a reference to the fifo queue. You can call pull on the reference to retrieve the last enqueued item.</dd>
+<dt>full</dt>
+<dd>This emit is emitted if the queue’s maximum size is reached.</dd>
+<dt>empty</dt>
+<dd>This event is emitted if pull is called and there are no items available.</dd>
+<dt>flush</dt>
+<dd>This event is emitted if someone flushes the queue.</dd>
+</dl>
+</div>
 </div>
 <div class="section" id="lifo-stack">
 <h2>LIFO (Stack)<a class="headerlink" href="#lifo-stack" title="Permalink to this headline">¶</a></h2>

@@ -5,15 +5,17 @@ Data structs is a small nodejs module providing general data structures for ever
 ## Included are (until now)
 
 * Double linked lists
-* FIFO Queues
-* LIFO Queues (Stack)
-
+* FIFO Queue
+* Async Fifo
+* LIFO Queue
+* Array-Stack
+* Heaps
 
 ## In work (planned)
 
-* Heaps
 * Binary-Trees
 * Graphs (including DFS and BFS
+
 ## Installation
 ```bash
 npm i @sebi2020/data_structs

@@ -195,7 +195,7 @@ var createMinHeap = (array) => new ArrayHeap(array, new MinOrder());
 /** Creates a new maxHeap */
 var createMaxHeap = (array) => new ArrayHeap(array, new MaxOrder());
 
-exports.Heap = ArrayHeap;
+exports.ArrayHeap = ArrayHeap;
 exports.createMinHeap = createMinHeap;
 exports.createMaxHeap = createMaxHeap;
 exports.MinOrder = MinOrder;

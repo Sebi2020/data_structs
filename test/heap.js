@@ -1,4 +1,4 @@
-heap = require('../heap.js');
+heap = require('..');
 expect = require('chai').expect;
 
 

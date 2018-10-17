@@ -1,4 +1,5 @@
 lists = require('./DoubleLinkedList.js');
+const EventEmitter = require('events');
 /**
  * Fifo class
  */
@@ -184,6 +185,60 @@ class ArrayStack {
 		this._stack = new Array();
 	}
 }
+
+/**
+ * Asynchronous fifo implementation
+ *
+ * @param {int} max_size Maximum queue size
+ */
+class AsyncFifo extends fifo {
+	constructor(max_size) {
+		super(max_size);
+		this.emitter = new EventEmitter;
+	}
+	/**
+	 * Pushes a new value to the queue and emits an *data* event
+	 * or an *full* event if the maximum queue size is reached.
+	 *
+	 * @param {any} value Value which should be enqueued.
+	 */
+	push(value) {
+		if(super.push(value)) {
+		this.emitter.emit('data',this);
+		return true;
+		} else {
+			this.emitter.emit('full', this);
+			return false;
+		}
+	}
+	/**
+	 * Pulls a value synchronously, if the queue is empty, an *empty* event is emitted
+	 */
+	pull() {
+		var val = super.pull();
+		if(val == null) {
+			this.emitter.emit('empty');
+		}
+		return val;
+	}
+	/**
+	 * Adds a new event listener
+	 *
+	 * @param {string} ev Event name
+	 * @param {callback} callback which should be attached to the queue.
+	 */
+	on(ev, cb) {
+		this.emitter.on(ev, cb);
+	}
+	/**
+	 * Flushes the queue and emits an *flush* event
+	 */
+	flush() {
+		this.emitter.emit('flush');
+		super.flush();
+	}
+}
 exports.fifo = fifo;
 exports.lifo = exports.stack = lifo;
 exports.ArrayStack = ArrayStack;
+exports.AsyncFifo = AsyncFifo;
