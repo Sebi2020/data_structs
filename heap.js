@@ -7,10 +7,10 @@ util = require('util');
 
  class ArrayHeap {
     /**
-	 * Creates a heap with min or max order and read or write preference
+	 * Creates a heap
 	 *
 	 * @param {Array} array Array to use for heap creation, should consists of \{key\: \*, value\: \* \} objects
-	 * @param {Order} order Preference for a min or max order heap. One instance which extends from :class:`Order`
+	 * @param {Order} order Preference for a min, max or :js:class:`Order` instance order heap.
 	 */
 	constructor(array, order) {
 		if(!(order instanceof Order)) {
